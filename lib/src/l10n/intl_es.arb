@@ -1,0 +1,13 @@
+{
+    "are_you_sure": "¿Estás seguro?",
+    "yes": "SI",
+    "no": "NO",
+    "dou_you_really": "Realmente quieres reiniciar el rompecabezas actual",
+    "movements": "movimientos",
+    "restart": "Reiniciar",
+    "start": "INICIAR",
+    "great_job": "¡GRAN TRABAJO!",
+    "completed": "Has completado el rompecabezas",
+    "time": "Tiempo",
+    "ok": "ACEPTAR"
+}

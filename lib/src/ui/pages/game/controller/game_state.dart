@@ -8,11 +8,14 @@ enum GameStatus {
 }
 
 class GameState extends Equatable {
+  /// numbers of columns and rows
   final int crossAxisCount;
   final Puzzle puzzle;
   final bool solved;
   final int moves;
   final GameStatus status;
+  final bool vibration;
+  final bool sound;
 
   const GameState({
     required this.crossAxisCount,
@@ -20,7 +23,9 @@ class GameState extends Equatable {
     required this.solved,
     required this.moves,
     required this.status,
-  });
+    required this.vibration,
+    required this.sound,
+  }) : assert(crossAxisCount >= 3);
 
   GameState copyWith({
     int? crossAxisCount,
@@ -28,6 +33,8 @@ class GameState extends Equatable {
     Puzzle? puzzle,
     bool? solved,
     GameStatus? status,
+    bool? sound,
+    bool? vibration,
   }) {
     return GameState(
       status: status ?? this.status,
@@ -35,6 +42,8 @@ class GameState extends Equatable {
       crossAxisCount: crossAxisCount ?? this.crossAxisCount,
       puzzle: puzzle ?? this.puzzle,
       solved: solved ?? this.solved,
+      sound: sound ?? this.sound,
+      vibration: vibration ?? this.vibration,
     );
   }
 
@@ -45,5 +54,7 @@ class GameState extends Equatable {
         puzzle,
         solved,
         status,
+        sound,
+        vibration,
       ];
 }

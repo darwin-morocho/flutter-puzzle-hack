@@ -1,16 +1,28 @@
+import 'dart:typed_data';
+
 import 'package:equatable/equatable.dart';
 import 'package:my_puzzle/src/domain/models/position.dart';
+import 'package:my_puzzle/src/domain/models/puzzle_image.dart';
 import 'tile.dart';
 import 'dart:math' as math;
 
 class Puzzle extends Equatable {
+  /// tiles of the current puzzle
   final List<Tile> tiles;
 
+  /// the empty position in the puzzle
   final Position emptyPosition;
+
+  /// a split image for the current puzzle
+  final List<Uint8List>? segmentedImage;
+
+  final PuzzleImage? image;
 
   const Puzzle._({
     required this.tiles,
     required this.emptyPosition,
+    required this.image,
+    required this.segmentedImage,
   });
 
   /// a tile can be moved if is in the same
@@ -95,11 +107,17 @@ class Puzzle extends Equatable {
     return Puzzle._(
       tiles: copy,
       emptyPosition: tile.position,
+      image: image,
+      segmentedImage: segmentedImage,
     );
   }
 
   /// creates a sorted puzzle
-  factory Puzzle.create(int crossAxisCount) {
+  factory Puzzle.create(
+    int crossAxisCount, {
+    List<Uint8List>? segmentedImage,
+    PuzzleImage? image,
+  }) {
     int value = 1;
     final tiles = <Tile>[];
 
@@ -126,10 +144,13 @@ class Puzzle extends Equatable {
     return Puzzle._(
       tiles: tiles,
       emptyPosition: emptyPosition,
+      image: image,
+      segmentedImage: segmentedImage,
     );
   }
 
   /// shuffle the puzzle tiles
+  /// and return a solvable puzzle
   Puzzle shuffle() {
     final values = List.generate(
       tiles.length,
@@ -168,12 +189,17 @@ class Puzzle extends Equatable {
       return Puzzle._(
         tiles: copy,
         emptyPosition: emptyPosition,
+        image: image,
+        segmentedImage: segmentedImage,
       );
     } else {
       return shuffle();
     }
   }
 
+  /// check if a list of int is a solvable puzzle
+  ///
+  /// for more info check https://www.geeksforgeeks.org/check-instance-15-puzzle-solvable/
   bool _isSolvable(List<int> values) {
     final n = math.sqrt(values.length);
 
@@ -219,6 +245,7 @@ class Puzzle extends Equatable {
     }
   }
 
+  /// check if the current puzzle is solved
   bool isSolved() {
     final crossAxisCount = math.sqrt(tiles.length + 1).toInt();
     if (emptyPosition.x == crossAxisCount && emptyPosition.y == crossAxisCount) {
@@ -236,5 +263,7 @@ class Puzzle extends Equatable {
   List<Object?> get props => [
         tiles,
         emptyPosition,
+        image,
+        segmentedImage,
       ];
 }
