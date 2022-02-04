@@ -23,3 +23,12 @@ For web use
 ```shell
 flutter run -d chrome --profile    
 ```
+
+
+
+
+---
+Check the next flutter puzzle tutorial (Spanish)
+
+[![Flutter puzzle hack - tutorial](https://img.youtube.com/vi/DEDO1yHXKHY/0.jpg)](https://www.youtube.com/watch?v=DEDO1yHXKHY "Flutter puzzle hack - tutorial")
+
