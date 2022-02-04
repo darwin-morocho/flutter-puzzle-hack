@@ -12,7 +12,8 @@ class MyTextIconButton extends StatelessWidget {
     Key? key,
     required this.onPressed,
     required this.icon,
-    required this.label,required this.height,
+    required this.label,
+    required this.height,
   }) : super(key: key);
 
   @override
@@ -31,7 +32,6 @@ class MyTextIconButton extends StatelessWidget {
         padding: MaterialStateProperty.all(
           EdgeInsets.symmetric(
             horizontal: padding,
-            vertical: padding,
           ).copyWith(right: padding * 2),
         ),
         elevation: MaterialStateProperty.all(0),
