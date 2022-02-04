@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "are_you_sure": MessageLookupByLibrary.simpleMessage("¿Estás seguro?"),
+        "back_to_game":
+            MessageLookupByLibrary.simpleMessage("Regresar al juego"),
         "completed": MessageLookupByLibrary.simpleMessage(
             "Has completado el rompecabezas"),
         "dou_you_really": MessageLookupByLibrary.simpleMessage(
@@ -31,6 +33,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "movements": MessageLookupByLibrary.simpleMessage("movimientos"),
         "no": MessageLookupByLibrary.simpleMessage("NO"),
         "ok": MessageLookupByLibrary.simpleMessage("ACEPTAR"),
+        "privacy": MessageLookupByLibrary.simpleMessage(
+            "Este es un juego gratuito sin fines de lucro, el juego no recolecta información de ningun tipo de los usuarios ni tampoco de su trafico, no necesita internet."),
         "restart": MessageLookupByLibrary.simpleMessage("Reiniciar"),
         "start": MessageLookupByLibrary.simpleMessage("INICIAR"),
         "time": MessageLookupByLibrary.simpleMessage("Tiempo"),

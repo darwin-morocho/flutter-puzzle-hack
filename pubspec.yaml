@@ -42,6 +42,7 @@ dependencies:
   just_audio: ^0.9.18
   image: ^3.1.1
   smooth_page_indicator: ^1.0.0+2
+  url_strategy: ^0.2.0
 
 dev_dependencies:
   flutter_test:

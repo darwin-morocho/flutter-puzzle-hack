@@ -1,16 +1,25 @@
-# my_puzzle
+# Jungle puzzle
 
-A new Flutter project.
+A slide puzzle game created with flutter for the flutter hack https://flutter.dev/events/puzzle-hack
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+| Numeric | Image          | Dark Mode |
+|--------|----------------|----|
+| ![](https://user-images.githubusercontent.com/15864336/152590496-b3f52cf5-f151-402d-9c99-89521cd2067b.png)  | ![](https://user-images.githubusercontent.com/15864336/152590537-57dc231e-ce73-4802-a16c-7364d6caea85.png) |![](https://user-images.githubusercontent.com/15864336/152590811-0b5a24c7-cd03-48ab-abb1-5a2000079b5f.png)
 
-A few resources to get you started if this is your first Flutter project:
+## How to run?
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+first run the next command to install all dependencies.
+```shell
+flutter pub get
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Now for Android and iOS use
+```shell
+flutter run
+```
+
+For web use
+```shell
+flutter run -d chrome --profile    
+```

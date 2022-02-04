@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           themeMode: controller.themeMode,
           theme: controller.lightTheme,
           darkTheme: controller.darkTheme,
-          initialRoute: Routes.splash,
+          initialRoute: Routes.splash, 
           routes: appRoutes,
         ),
       ),

@@ -159,6 +159,26 @@ class S {
       args: [],
     );
   }
+
+  /// `This is a free non-profit game, the game does not collect information of any kind from users or their traffic, it does not need internet.`
+  String get privacy {
+    return Intl.message(
+      'This is a free non-profit game, the game does not collect information of any kind from users or their traffic, it does not need internet.',
+      name: 'privacy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `back to the game`
+  String get back_to_game {
+    return Intl.message(
+      'back to the game',
+      name: 'back_to_game',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
