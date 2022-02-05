@@ -5,6 +5,7 @@ import 'package:my_puzzle/src/ui/icons/puzzle_icons.dart';
 import 'package:my_puzzle/src/ui/utils/colors.dart';
 import 'package:my_puzzle/src/ui/utils/dark_mode_extension.dart';
 import 'package:my_puzzle/src/ui/utils/time_parser.dart';
+import 'package:rive/rive.dart';
 
 Future<void> showWinnerDialog(
   BuildContext context, {
@@ -45,69 +46,77 @@ class WinnerDialog extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 20,
-                  ),
-                  child: Transform.scale(
-                    scale: 1.5,
-                    child: Image.asset(
-                      'assets/images/dash.png',
-                      width: 200,
-                    ),
-                  ),
-                ),
-                Text(
-                  texts.great_job,
-                  style: const TextStyle(
-                    fontSize: 25,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                  ),
-                  child: Text(
-                    texts.completed,
-                    style: const TextStyle(
-                      fontSize: 16,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                const SizedBox(height: 15),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 15,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                AspectRatio(
+                  aspectRatio: 1.2,
+                  child: Stack(
                     children: [
-                      Row(
-                        children: [
-                          const Icon(
-                            PuzzleIcons.watch,
-                          ),
-                          Text(
-                            parseTime(time),
-                            style: const TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),
-                        ],
+                      const Center(
+                        child: RiveAnimation.asset(
+                          'assets/rive/winner.riv',
+                        ),
                       ),
-                      Row(
-                        children: [
-                          const Icon(
-                            Icons.multiple_stop_rounded,
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 30),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                texts.great_job,
+                                style: const TextStyle(
+                                  fontSize: 25,
+                                ),
+                              ),
+                              Text(
+                                texts.completed,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                ),
+                                textAlign: TextAlign.center,
+                              )
+                            ],
                           ),
-                          Text(
-                            "${texts.movements} $moves",
-                            style: const TextStyle(
-                              fontSize: 20,
-                            ),
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 15,
                           ),
-                        ],
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Row(
+                                children: [
+                                  const Icon(
+                                    PuzzleIcons.watch,
+                                  ),
+                                  Text(
+                                    parseTime(time),
+                                    style: const TextStyle(
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  const Icon(
+                                    Icons.multiple_stop_rounded,
+                                  ),
+                                  Text(
+                                    "${texts.movements} $moves",
+                                    style: const TextStyle(
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ],
                   ),

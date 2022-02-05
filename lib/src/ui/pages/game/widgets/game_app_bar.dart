@@ -4,8 +4,8 @@ import 'package:my_puzzle/src/ui/global/widgets/my_icon_button.dart';
 import 'package:my_puzzle/src/ui/icons/puzzle_icons.dart';
 import 'package:my_puzzle/src/ui/pages/game/controller/game_controller.dart';
 import 'package:my_puzzle/src/ui/utils/dark_mode_extension.dart';
+import 'package:my_puzzle/src/ui/utils/platform.dart';
 import 'package:provider/provider.dart';
-
 
 const whiteFlutterLogoColorFilter = ColorFilter.matrix(
   [1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0],
@@ -16,9 +16,15 @@ class GameAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const logo = FlutterLogo(
-      size: 40,
-    );
+    final logo = isIOS
+        ? const Icon(
+            PuzzleIcons.heart,
+            color: Colors.redAccent,
+            size: 30,
+          )
+        : const FlutterLogo(
+            size: 40,
+          );
 
     return SafeArea(
       child: Padding(
@@ -28,11 +34,11 @@ class GameAppBar extends StatelessWidget {
         ),
         child: Row(
           children: [
-            const FittedBox(
+            FittedBox(
               child: Text.rich(
                 TextSpan(
-                  text: "Powered\n",
-                  children: [
+                  text: "${isIOS ? "Created" : "Powered"}\n",
+                  children: const [
                     TextSpan(
                       text: "with",
                       style: TextStyle(
@@ -47,7 +53,7 @@ class GameAppBar extends StatelessWidget {
             ),
             const SizedBox(width: 5),
             if (context.isDarkMode)
-              const ColorFiltered(
+              ColorFiltered(
                 colorFilter: whiteFlutterLogoColorFilter,
                 child: logo,
               )

@@ -18,5 +18,6 @@ extension MoveToExt on String {
       case "Arrow Right":
         return MoveTo.right;
     }
+    return null;
   }
 }
